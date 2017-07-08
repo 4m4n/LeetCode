@@ -10,14 +10,14 @@
  * @return {string}
  */
 var tree2str = function(t) {
-    if(t === null)
+    if(!t)
         return "";
-        
-    if(t.left === null && t.right === null)
-        return t.val+ "";
-        
-    if(t.right === null)
+    
+    if(!t.left && !t.right)
+        return t.val + "";
+    
+    if(!t.right)
         return t.val + "(" + tree2str(t.left) + ")";
-        
+    
     return t.val + "(" + tree2str(t.left) + ")(" + tree2str(t.right) + ")";
 };
