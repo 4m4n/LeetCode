@@ -34,6 +34,5 @@ var fact = function(num){
     if(num == 0 || num == 1)
     	return 1;
     
-    var result = fact(num - 1) * num;
-    return result;
+    return fact(num - 1) * num;
 };
