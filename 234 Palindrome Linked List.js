@@ -12,16 +12,27 @@
 var isPalindrome = function(head) {
     if(!head || head.next ==  null)
         return true;
-        
-    var str = [];
     
-    var headPtr = head;
-    while(headPtr != null){
-        str.push(headPtr.val);
-        headPtr = headPtr.next;
+    var slow = head;
+    var fast = head;
+    
+    var stack = [];
+    
+    while(fast && fast.next){
+        stack.push(slow.val);
+        slow = slow.next;
+        fast = fast.next.next;
     }
     
-    var reverse = str.slice().reverse();
+    if(fast)
+        slow = slow.next;
     
-    return (str.join() == reverse.join());
+    while(slow){
+        var top = stack.pop();
+        if(slow.val != top)
+            return false;
+        slow = slow.next;
+    }
+    
+    return true;
 };
