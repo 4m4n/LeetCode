@@ -6,15 +6,15 @@ var maxProfit = function(prices) {
     if(prices.length <= 1)
         return 0;
         
-    var minPrice = 2147483647;
+    var minPrice = Number.MAX_VALUE;
     var maxProfit = 0;
     
     for(var i in prices){
-        if(prices[i] < minPrice)
-            minPrice = prices[i];
-        else if(prices[i] - minPrice > maxProfit)
-            maxProfit = prices[i] - minPrice;
-        
+        var currentPrice = prices[i];
+        if(currentPrice < minPrice)
+            minPrice = currentPrice;
+        else 
+            maxProfit = Math.max(maxProfit, currentPrice - minPrice);
     }
     
     return maxProfit;
