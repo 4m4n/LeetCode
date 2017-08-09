@@ -38,8 +38,6 @@ var hasCycle = function(item, map, visited){
             return true;
     }
     
-    delete map[item];
-    
     delete visited[item];
     
     return false;
